@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/VitorOwsiany/VitorOwsiany">
-    <img src="https://github.com/VitorOwsiany/VitorOwsiany/blob/main/dist/github-snake-dark.svg" alt="github-snake" />
+  <a href="https://github.com/vitorows/vitorows">
+    <img src="https://github.com/vitorows/vitorows/blob/main/dist/github-snake-dark.svg" alt="github-snake" />
   </a>
 </p>
