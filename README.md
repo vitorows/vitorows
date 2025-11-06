@@ -3,5 +3,7 @@
 </p>
 
 <p align="center">
-  <img src="https://github.com/VitorOwsiany/VitorOwsiany/blob/output/github-snake-dark.svg" alt="github-snake" />
+  <a href="https://github.com/VitorOwsiany/VitorOwsiany">
+    <img src="https://github.com/VitorOwsiany/VitorOwsiany/blob/main/dist/github-snake-dark.svg" alt="github-snake" />
+  </a>
 </p>
