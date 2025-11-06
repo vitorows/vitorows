@@ -4,6 +4,6 @@
 
 <p align="center">
   <a href="https://github.com/vitorows/vitorows">
-    <img src="https://github.com/vitorows/vitorows/blob/main/dist/github-snake-dark.svg" alt="github-snake" />
+    <img src="https://github.com/vitorows/vitorows/blob/principal/dist/github-snake-dark.svg" alt="github-snake" />
   </a>
 </p>
