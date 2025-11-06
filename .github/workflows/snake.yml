@@ -9,10 +9,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      # 1. Traz o código do repositório para a máquina virtual
+      # 1. Traz o código, AGORA COM A REFERÊNCIA CORRETA
       - uses: actions/checkout@v3
+        with:
+          ref: principal # <-- ESTA É A CORREÇÃO
       
-      # 2. Gera os arquivos SVG da cobrinha (isto já estava certo)
+      # 2. Gera os arquivos SVG da cobrinha
       - uses: Platane/snk@v3
         with:
           github_user_name: vitorows
@@ -22,7 +24,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # 3. (A PARTE QUE FALTAVA) FAZ O COMMIT E SALVA OS ARQUIVOS GERADOS
+      # 3. Faz o commit e salva os arquivos gerados
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: '🐍 Gerar nova animação da cobrinha'
