@@ -2,20 +2,21 @@ name: Generate Snake
 
 on:
   schedule:
-    - cron: "0 0 * * *" # Roda uma vez por dia à meia-noite (UTC)
+    - cron: "0 0 * * *" # Roda uma vez por dia
   workflow_dispatch: # Permite rodar manualmente
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        
       - uses: Platane/snk@v3
         with:
-          # AQUI: Certifique-se que este é seu nome de usuário do GitHub
-          github_user_name: vitorows 
+          # O seu nome de usuário do GitHub (está correto)
+          github_user_name: vitorows
           
-          # Lista de arquivos SVG que serão gerados
+          # Lista de arquivos que serão gerados
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
