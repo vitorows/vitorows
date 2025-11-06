@@ -8,11 +8,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    # ----------------------------------------------------
+    #  A NOVA CORREÇÃO ESTÁ AQUI: PERMISSÕES DE ESCRITA
+    # ----------------------------------------------------
+    permissions:
+      contents: write
+    # ----------------------------------------------------
+
     steps:
-      # 1. Traz o código, AGORA COM A REFERÊNCIA CORRETA
+      # 1. Traz o código
       - uses: actions/checkout@v3
         with:
-          ref: principal # <-- ESTA É A CORREÇÃO
+          ref: principal 
       
       # 2. Gera os arquivos SVG da cobrinha
       - uses: Platane/snk@v3
