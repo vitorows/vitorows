@@ -9,17 +9,25 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # 1. Traz o código do repositório para a máquina virtual
       - uses: actions/checkout@v3
-        
+      
+      # 2. Gera os arquivos SVG da cobrinha (isto já estava certo)
       - uses: Platane/snk@v3
         with:
-          # O seu nome de usuário do GitHub (está correto)
           github_user_name: vitorows
-          
-          # Lista de arquivos que serão gerados
           outputs: |
             dist/github-snake.svg
             dist/github-snake-dark.svg?palette=github-dark
-            
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 3. (A PARTE QUE FALTAVA) FAZ O COMMIT E SALVA OS ARQUIVOS GERADOS
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: '🐍 Gerar nova animação da cobrinha'
+          file_pattern: 'dist/*.svg'
+          branch: principal 
+          commit_user_name: 'github-actions[bot]'
+          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_author: 'github-actions[bot] <github-actions[bot]@users.noreply.github.com>'
