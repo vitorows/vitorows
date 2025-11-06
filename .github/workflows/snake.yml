@@ -8,21 +8,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
-    # ----------------------------------------------------
-    #  A NOVA CORREÇÃO ESTÁ AQUI: PERMISSÕES DE ESCRITA
-    # ----------------------------------------------------
+    
+    # Adiciona permissão de escrita (Isto está certo)
     permissions:
       contents: write
-    # ----------------------------------------------------
 
     steps:
-      # 1. Traz o código
+      # 1. Traz o código. (REMOVEMOS o 'ref: principal' daqui)
+      # Ele vai usar o branch 'principal' automaticamente, pois é o seu padrão.
       - uses: actions/checkout@v3
-        with:
-          ref: principal 
       
-      # 2. Gera os arquivos SVG da cobrinha
+      # 2. Gera os arquivos SVG da cobrinha (Isto está certo)
       - uses: Platane/snk@v3
         with:
           github_user_name: vitorows
@@ -32,7 +28,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # 3. Faz o commit e salva os arquivos gerados
+      # 3. Faz o commit e salva (Isto está certo, e vai usar o branch 'principal')
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: '🐍 Gerar nova animação da cobrinha'
