@@ -9,15 +9,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
-    # Adiciona permissão de escrita (Isto está certo)
+    # Adiciona permissão de escrita
     permissions:
       contents: write
 
     steps:
-      # 1. Traz o código. (Isto funcionou, check verde!)
+      # 1. Traz o código.
+      # A LINHA NOVA É A "fetch-depth: 0"
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # <-- ESTA É A CORREÇÃO
       
-      # 2. Gera os arquivos SVG da cobrinha (Isto funcionou, check verde!)
+      # 2. Gera os arquivos SVG da cobrinha
       - uses: Platane/snk@v3
         with:
           github_user_name: vitorows
@@ -32,7 +35,6 @@ jobs:
         with:
           commit_message: '🐍 Gerar nova animação da cobrinha'
           file_pattern: 'dist/*.svg'
-          # A LINHA 'branch: principal' FOI REMOVIDA DAQUI
           commit_user_name: 'github-actions[bot]'
           commit_user_email: 'github-actions[bot]@users.noreply.github.com'
           commit_author: 'github-actions[bot] <github-actions[bot]@users.noreply.github.com>'
