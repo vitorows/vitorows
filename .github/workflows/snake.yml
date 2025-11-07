@@ -1,4 +1,4 @@
-name: Generate Snake
+name: Generate Snake Graph
 
 on:
   schedule:
@@ -9,29 +9,28 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
-    # -----------------------------------------------
-    # A CORREÇÃO ESTÁ AQUI. DÁ PERMISSÃO AO ROBÔ.
-    # -----------------------------------------------
+    # Permissão para o robô escrever no repositório
     permissions:
       contents: write
-    # -----------------------------------------------
 
     steps:
-      # 1. Gera os arquivos da cobra
+      # 1. Gera o GRÁFICO da cobra (não mais a animação solta)
       - uses: Platane/snk@v3
         with:
           github_user_name: vitorows # Seu usuário
+          
+          # Pede os arquivos do GRÁFICO (contribution)
           outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
+            dist/contribution-snake.svg
+            dist/contribution-snake-dark.svg?palette=github-dark
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # 2. Publica os arquivos no branch 'output'
-      - name: Push snake files to output branch
+      - name: Push snake graph to output branch
         uses: crazy-max/ghaction-github-pages@v3
         with:
-          target_branch: output # O nome do novo branch
+          target_branch: output # O branch de saída
           build_dir: dist     # A pasta que contém os arquivos
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
