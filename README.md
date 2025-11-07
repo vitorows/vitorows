@@ -2,10 +2,12 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=500&color=00FFFF&center=true&vCenter=true&width=500&lines=Ol%C3%A1%2C+eu+sou+o+Vitor+Owsiany!;" alt="Typing Animation">
 </p>
 
+### 🛠️ Habilidades
 <p align="left">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=nodejs,ts,js,postgres" />
-  </a>
+  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript"/>
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL"/>
 </p>
 
 ---
