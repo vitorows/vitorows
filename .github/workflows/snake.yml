@@ -1,21 +1,32 @@
-name: Gerar Cobra 🐍
+name: Generate Snake
 
 on:
   schedule:
-    - cron: "0 0 * * *"  # Roda automaticamente todo dia à meia-noite
-  workflow_dispatch:      # Permite rodar manualmente
+    - cron: "0 0 * * *" # Roda todo dia
+  workflow_dispatch: # Permite rodar manualmente
 
 jobs:
   build:
-    name: Gerar Snake
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout do código
-        uses: actions/checkout@v3
-
-      - name: Gerar cobrinha de contribuições
-        uses: Platane/snk@v3
+      # 1. Gera os arquivos da cobra (não precisa de checkout)
+      - uses: Platane/snk@v3
         with:
-          github_user_name: vitorows
-          outputs: dist/github-contribution-grid-snake.svg
+          github_user_name: vitorows # Seu usuário do GitHub (está correto)
+          
+          # Lista de arquivos para gerar
+          outputs: |
+            dist/github-snake.svg
+            dist/github-snake-dark.svg?palette=github-dark
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # 2. Publica os arquivos da pasta 'dist' em um NOVO branch chamado 'output'
+      - name: Push snake files to output branch
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          target_branch: output # O nome do novo branch
+          build_dir: dist     # A pasta que contém os arquivos
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
